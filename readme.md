@@ -3,7 +3,6 @@ Everything mapped to /data folder is backed up to /repo .
 
 # run 
 docker run \
-    --rm \
     -e BACKUP_HOUR=22 \
     -e BORG_PASSPHRASE=my-secret-pw \
     -e TZ=Europe/Berlin \
@@ -21,8 +20,21 @@ KEEP_DAILY = 7
 KEEP_WEEKLY = 1
 KEEP_MONTHLY = 1
 
-# build
-docker build -t martinay/borgbackup:latest .
+# restore
+run a temporary docker container and execute borg commands in the opening shell
+docker run \
+    --rm \
+    -it \
+    -e BORG_PASSPHRASE=my-secret-pw \
+    -e TZ=Europe/Berlin \
+    -v backup-dir:/repo \
+    -v restore-here:/restore \
+    --name borg-backup-restore \
+    martinay/borgbackup:latest \
+    /bin/sh
 
 # tags
 1.1.17, latest -> borg version 1.1.17
+
+# build
+docker build -t martinay/borgbackup:latest .
