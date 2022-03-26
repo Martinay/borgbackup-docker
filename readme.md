@@ -15,6 +15,8 @@ docker run \
 # Environment variables:
 BACKUP_HOUR = hour when backup is started (default is 23)
 
+TZ= Timezone e.g. Europe/Berlin
+
 used for borg prune:
 KEEP_DAILY = 7
 KEEP_WEEKLY = 1
