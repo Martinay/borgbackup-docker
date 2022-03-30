@@ -30,7 +30,7 @@ fi
 # Setup cron schedule
 echo "*       $BACKUP_HOUR       *       *       *       run-parts /etc/periodic/borgbackup" >> /etc/crontabs/root
 
-echo "done with setup..."
-echo "waiting until ${BACKUP_HOUR}:00 to start first backup"
+echo "$(date) - done with setup..."
+echo "$(date) - waiting until ${BACKUP_HOUR}:00 to start first backup"
 
 crond -f -l 8

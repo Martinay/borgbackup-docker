@@ -9,6 +9,7 @@ docker run \
     -v backup-dir:/repo \
     -v storage:/data/data1 \
     -v private_data:/data/data2 \
+    -v logs:/logs \
     --name borg-backup \
     martinay/borgbackup:latest
 
