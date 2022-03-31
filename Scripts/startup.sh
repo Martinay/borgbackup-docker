@@ -28,7 +28,7 @@ if [ ! "$(ls -A $BORG_REPO)" ]; then
 fi
 
 # Setup cron schedule
-echo "*       $BACKUP_HOUR       *       *       *       run-parts /etc/periodic/borgbackup" >> /etc/crontabs/root
+echo "0       $BACKUP_HOUR       *       *       *       run-parts /etc/periodic/borgbackup" >> /etc/crontabs/root
 
 echo "$(date) - done with setup..."
 echo "$(date) - waiting until ${BACKUP_HOUR}:00 to start first backup"
