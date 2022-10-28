@@ -37,7 +37,14 @@ docker run \
     /bin/sh
 
 # tags
-1.1.17, latest -> borg version 1.1.17
+1.2.0, latest -> borg version 1.2.0
 
 # build
 docker build -t martinay/borgbackup:latest .
+
+# upgrade guide
+## 1.1.17 -> 1.2.0
+1. Update image tag and run container
+2. Connect to container 'docker exec -it <Id of container> /bin/sh'
+3. Run 'borg compact --cleanup-commits /repo'
+4. Exit the container with 'exit'

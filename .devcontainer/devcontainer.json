@@ -1,0 +1,27 @@
+{
+	"name": "Docker in Docker",
+	"image": "mcr.microsoft.com/devcontainers/base:buster",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:1": {
+			"installZsh": "true",
+			"upgradePackages": "false",
+			"uid": "1000",
+			"gid": "1000",
+			"installOhMyZsh": "true",
+			"nonFreePackages": "true"
+		},
+		"ghcr.io/devcontainers/features/docker-from-docker:1": {
+			"version": "latest",
+			"enableNonRootDocker": "true",
+			"moby": "true"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}

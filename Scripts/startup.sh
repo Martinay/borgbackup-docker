@@ -27,6 +27,9 @@ if [ ! "$(ls -A $BORG_REPO)" ]; then
     borg init -v --show-rc --encryption=repokey
 fi
 
+# Remove already existing settings (Happens if the container is stopped and restarted)
+sed -i '/borgbackup/d' ./etc/crontabs/root
+
 # Setup cron schedule
 echo "0       $BACKUP_HOUR       *       *       *       run-parts /etc/periodic/borgbackup" >> /etc/crontabs/root
 
