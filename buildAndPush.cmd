@@ -1,6 +1,6 @@
 @echo off
 
-set VERSION=1.1.2
+set VERSION=1.2.0
 set REPO=martinay/borgbackup
 
 docker build -t %REPO%:%VERSION% -t %REPO%:latest .
