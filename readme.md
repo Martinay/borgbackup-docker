@@ -46,5 +46,5 @@ docker build -t martinay/borgbackup:latest .
 ## 1.1.17 -> 1.2.0
 1. Update image tag and run container
 2. Connect to container 'docker exec -it <Id of container> /bin/sh'
-3. Run 'borg compact --cleanup-commits /repo'
+3. Run 'borg compact --cleanup-commits --progress --verbose /repo'
 4. Exit the container with 'exit'
