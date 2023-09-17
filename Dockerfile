@@ -1,8 +1,11 @@
-FROM alpine:3.16
+ARG ALPINE_VERSION
+ARG BORG_VERSION
+
+FROM alpine:${ALPINE_VERSION}
 
 ENV LANG en_US.UTF-8
 
-RUN apk add --no-cache borgbackup=1.2.0-r0 tzdata
+RUN apk add --no-cache borgbackup=${BORG_VERSION} tzdata
 
 ENV BORG_REPO="/repo" DATA_DIR="/data" LOG_DIR="/logs"
 
