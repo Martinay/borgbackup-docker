@@ -42,7 +42,7 @@ docker run \
 ```
 
 # tags
-1.2.0, latest -> borg version 1.2.0
+1.2.6, latest -> borg version 1.2.6
 
 # build
 docker build -t martinay/borgbackup:latest .
@@ -50,13 +50,13 @@ docker build -t martinay/borgbackup:latest .
 # upgrade guide
 ## 1.2.0 -> 1.2.6
 1. Update image tag and run container
-2. Connect to container 'docker exec -it <Id of container> /bin/sh'
-3. Run 'borg check /repo'
-3. Run 'borg info /repo'
-4. Exit the container with 'exit'
+2. Connect to container ```docker exec -it borg-backup /bin/sh```
+3. Run ```borg check /repo``` and check if there is anything special. This can take time.
+3. Run ```borg info /repo```  .
+4. Exit the container with ```exit```
 
 ## 1.1.17 -> 1.2.0
 1. Update image tag and run container
-2. Connect to container 'docker exec -it <Id of container> /bin/sh'
-3. Run 'borg compact --cleanup-commits --progress --verbose /repo'
-4. Exit the container with 'exit'
+2. Connect to container ```docker exec -it borg-backup /bin/sh```
+3. Run ```borg compact --cleanup-commits --progress --verbose /repo```
+4. Exit the container with ```exit```
