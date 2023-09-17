@@ -48,6 +48,13 @@ docker run \
 docker build -t martinay/borgbackup:latest .
 
 # upgrade guide
+## 1.2.0 -> 1.2.6
+1. Update image tag and run container
+2. Connect to container 'docker exec -it <Id of container> /bin/sh'
+3. Run 'borg check /repo'
+3. Run 'borg info /repo'
+4. Exit the container with 'exit'
+
 ## 1.1.17 -> 1.2.0
 1. Update image tag and run container
 2. Connect to container 'docker exec -it <Id of container> /bin/sh'
