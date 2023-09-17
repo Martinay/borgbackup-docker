@@ -11,7 +11,7 @@ on:
 env:
   IMAGE_NAME: martinay/borgbackup
   ALPINE_VERSION: 3.18
-  BORG_VERSION: 1.2.6
+  BORG_VERSION: 1.2.6-rc0
 
 jobs:
   docker:
