@@ -1,7 +1,8 @@
 This container runs borgbackup daily.
 Everything mapped to /data folder is backed up to /repo .
 
-# run 
+# run
+```
 docker run \
     -e BACKUP_HOUR=22 \
     -e BORG_PASSPHRASE=my-secret-pw \
@@ -12,19 +13,22 @@ docker run \
     -v logs:/logs \
     --name borg-backup \
     martinay/borgbackup:latest
+```
 
 # Environment variables:
+```
 BACKUP_HOUR = hour when backup is started (default is 23)
-
 TZ= Timezone e.g. Europe/Berlin
-
+```
 used for borg prune:
+```
 KEEP_DAILY = 7
 KEEP_WEEKLY = 1
 KEEP_MONTHLY = 1
-
+```
 # restore
 run a temporary docker container and execute borg commands in the opening shell
+```
 docker run \
     --rm \
     -it \
@@ -35,6 +39,7 @@ docker run \
     --name borg-backup-restore \
     martinay/borgbackup:latest \
     /bin/sh
+```
 
 # tags
 1.2.0, latest -> borg version 1.2.0
